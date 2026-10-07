@@ -21,7 +21,7 @@
                 <ul>
                     <li><a href="dashboard.html" class="active">Minhas Tarefas</a></li>
                     <li><a href="nova-tarefa.html">Criar Tarefa</a></li>
-                    <li><a href="#">Configurações</a></li>
+                    <li><a href="dashboard.html">Configurações</a></li>
                     <li><a href="../index.html">Sair</a></li>
                 </ul>
             </nav>
@@ -32,83 +32,13 @@
         <main id="main-content" class="dashboard-content">
             <header class="dashboard-header">
                 <h2>Minhas Tarefas</h2>
-                <a id="nova-tarefa" href="nova-tarefa.html" class="btn btn-success btn-new">Nova Tarefa</a>
+                <a href="nova-tarefa.html" class="btn btn-success btn-new">Nova Tarefa</a>
             </header>
 
-            <section class="task-grid" aria-label="Lista de tarefas">
-                <article class="task-card">
-                    <header class="task-title-row">
-                        <h3>Tarefa 1</h3>
-                        <a href="detalhes.html" class="view-link" aria-label="Ver detalhes da Tarefa 1">◉</a>
-                    </header>
-                    <p>Descrição acessível e clara da primeira tarefa a ser realizada.</p>
-                    <div class="task-actions">
-                        <a href="editar-tarefa.html" class="btn btn-primary">Editar</a>
-                        <button type="button" class="btn btn-success">Concluir</button>
-                    </div>
-                </article>
-
-                <article class="task-card">
-                    <header class="task-title-row">
-                        <h3>Tarefa 2</h3>
-                        <a href="detalhes.html" class="view-link" aria-label="Ver detalhes da Tarefa 2">◉</a>
-                    </header>
-                    <p>Descrição acessível e clara da segunda tarefa a ser realizada.</p>
-                    <div class="task-actions">
-                        <a href="editar-tarefa.html" class="btn btn-primary">Editar</a>
-                        <button type="button" class="btn btn-success">Concluir</button>
-                    </div>
-                </article>
-
-                <article class="task-card">
-                    <header class="task-title-row">
-                        <h3>Tarefa 3</h3>
-                        <a href="detalhes.html" class="view-link" aria-label="Ver detalhes da Tarefa 3">◉</a>
-                    </header>
-                    <p>Descrição acessível e clara da terceira tarefa a ser realizada.</p>
-                    <div class="task-actions">
-                        <a href="editar-tarefa.html" class="btn btn-primary">Editar</a>
-                        <button type="button" class="btn btn-success">Concluir</button>
-                    </div>
-                </article>
-
-                <article class="task-card">
-                    <header class="task-title-row">
-                        <h3>Tarefa 4</h3>
-                        <a href="detalhes.html" class="view-link" aria-label="Ver detalhes da Tarefa 4">◉</a>
-                    </header>
-                    <p>Descrição acessível e clara da quarta tarefa a ser realizada.</p>
-                    <div class="task-actions">
-                        <a href="editar-tarefa.html" class="btn btn-primary">Editar</a>
-                        <button type="button" class="btn btn-success">Concluir</button>
-                    </div>
-                </article>
-
-                <article class="task-card">
-                    <header class="task-title-row">
-                        <h3>Tarefa 5</h3>
-                        <a href="detalhes.html" class="view-link" aria-label="Ver detalhes da Tarefa 5">◉</a>
-                    </header>
-                    <p>Descrição acessível e clara da quinta tarefa a ser realizada.</p>
-                    <div class="task-actions">
-                        <a href="editar-tarefa.html" class="btn btn-primary">Editar</a>
-                        <button type="button" class="btn btn-success">Concluir</button>
-                    </div>
-                </article>
-
-                <article class="task-card">
-                    <header class="task-title-row">
-                        <h3>Tarefa 6</h3>
-                        <a href="detalhes.html" class="view-link" aria-label="Ver detalhes da Tarefa 6">◉</a>
-                    </header>
-                    <p>Descrição acessível e clara da sexta tarefa a ser realizada.</p>
-                    <div class="task-actions">
-                        <a href="editar-tarefa.html" class="btn btn-primary">Editar</a>
-                        <button type="button" class="btn btn-success">Concluir</button>
-                    </div>
-                </article>
-            </section>
+            <section id="task-list" class="task-grid" aria-label="Lista de tarefas"></section>
         </main>
     </div>
+
+    <script src="../js/app.js"></script>
 </body>
 </html>
