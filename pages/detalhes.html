@@ -21,12 +21,12 @@
                 <ul>
                     <li><a href="dashboard.html">Minhas Tarefas</a></li>
                     <li><a href="nova-tarefa.html">Criar Tarefa</a></li>
-                    <li><a href="#">Configurações</a></li>
+                    <li><a href="dashboard.html">Configurações</a></li>
                     <li><a href="../index.html">Sair</a></li>
                 </ul>
             </nav>
 
-            <p class="sidebar-footer">© 2025 Projeto Acadêmico</p>
+            <p class="sidebar-footer">© 2026 Projeto Acadêmico</p>
         </aside>
 
         <main id="main-content" class="dashboard-content detail-content">
@@ -35,29 +35,31 @@
                 <a href="dashboard.html" class="btn btn-primary btn-back">Voltar para a Lista</a>
             </header>
 
-            <article class="detail-card">
+            <article id="task-detail" class="detail-card">
                 <header>
-                    <h3>Revisar proposta do cliente</h3>
-                    <p class="status-line">Status: <strong>Pendente</strong></p>
+                    <h3 data-field="title">Tarefa</h3>
+                    <p class="status-line">Status: <strong data-field="status">Pendente</strong></p>
                 </header>
 
                 <dl class="detail-info">
                     <div>
                         <dt>Criada em:</dt>
-                        <dd>14 de Agosto de 2026</dd>
+                        <dd data-field="created">-</dd>
                     </div>
                     <div>
                         <dt>Descrição:</dt>
-                        <dd>Verificar os valores e o escopo do projeto antes de enviar para o cliente. Focar na cláusula 5.3 sobre prazos de entrega. É crucial garantir que todos os itens solicitados na última reunião estejam contemplados no documento final.</dd>
+                        <dd data-field="description">Sem descrição.</dd>
                     </div>
                 </dl>
 
                 <footer class="detail-actions">
-                    <a href="editar-tarefa.html" class="btn btn-primary">Editar Tarefa</a>
-                    <button type="button" class="btn btn-danger">Excluir Tarefa</button>
+                    <a href="editar-tarefa.html" data-action="edit" class="btn btn-primary">Editar Tarefa</a>
+                    <button type="button" data-action="delete" class="btn btn-danger">Excluir Tarefa</button>
                 </footer>
             </article>
         </main>
     </div>
+
+    <script src="../js/app.js"></script>
 </body>
 </html>
