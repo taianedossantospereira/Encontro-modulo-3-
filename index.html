@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página de login do sistema de gerenciamento de tarefas">
+    <title>Login - Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <main id="main-content" class="auth-layout">
+        <header class="auth-page-header">
+            <h1>Sistema de<br>Gerenciamento<br>de Tarefas</h1>
+        </header>
+
+        <section class="card auth-card" aria-labelledby="login-heading">
+            <header class="card-header">
+                <h2 id="login-heading">Bem-vindo de volta!</h2>
+            </header>
+
+            <form action="pages/dashboard.html" method="get" aria-labelledby="login-heading">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="seu@email.com" autocomplete="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input id="senha" name="senha" type="password" placeholder="Sua senha" autocomplete="current-password" required>
+                </div>
+
+                <button type="submit" class="btn btn-success">Entrar</button>
+                <div class="sr-status" aria-live="polite"></div>
+            </form>
+
+            <p class="auth-link">Não tem uma conta? <a href="pages/cadastro.html">Cadastre-se</a></p>
+        </section>
+
+        <footer class="auth-footer">
+            © 2026 Projeto Acadêmico | <a href="#">Termos de Uso</a>
+        </footer>
+    </main>
+</body>
+</html>

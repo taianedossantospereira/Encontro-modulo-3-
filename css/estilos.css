@@ -1,0 +1,629 @@
+/* =========================================================
+   SISTEMA DE GERENCIAMENTO DE TAREFAS
+   HTML5 + CSS3 | Projeto Acadêmico
+   ========================================================= */
+
+:root {
+    --bg: #101827;
+    --panel: #1d2939;
+    --panel-2: #202d3e;
+    --input: #354154;
+    --border: #334155;
+    --text: #f4f7fb;
+    --muted: #7f95b3;
+    --muted-light: #aeb9c9;
+    --brand: #3b82f6;
+    --success: #20c55a;
+    --danger: #ff4d4d;
+    --focus: 3px solid #60a5fa;
+    --sidebar: #1c293c;
+    --space: clamp(0.75rem, 2vw, 1.25rem);
+    --radius: 8px;
+    --maxw: 72rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background: var(--bg);
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg);
+}
+
+a {
+    color: var(--brand);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button,
+.btn,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+    outline: var(--focus);
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 1rem;
+    z-index: 1000;
+    padding: 0.6rem 0.8rem;
+    background: #000;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.skip-link:focus {
+    left: 1rem;
+}
+
+/* ---------- Login e cadastro ---------- */
+
+.auth-layout {
+    width: min(100% - 2rem, 29rem);
+    min-height: 100vh;
+    margin-inline: auto;
+    padding: 1.45rem 0 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-page-header {
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+.auth-page-header h1 {
+    margin: 0;
+    color: #b7bec9;
+    font-size: clamp(1.7rem, 5vw, 2.15rem);
+    line-height: 1.45;
+    font-weight: 700;
+}
+
+.card {
+    width: 100%;
+    background: var(--panel);
+    border: 1px solid #2e3b4c;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+}
+
+.auth-card {
+    width: min(100%, 21rem);
+    padding: 1.25rem 1rem 1rem;
+}
+
+.card-header h2 {
+    margin: 0 0 0.45rem;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-top: 0.9rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    display: block;
+    width: 100%;
+    min-height: 2.25rem;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid #46546a;
+    border-radius: 5px;
+    background: var(--input);
+    color: var(--text);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #8491a5;
+    opacity: 1;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--brand);
+    outline: none;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.25rem;
+    padding: 0.55rem 0.85rem;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    text-decoration: none;
+    filter: brightness(1.08);
+}
+
+.btn-success {
+    background: var(--success);
+}
+
+.btn-primary {
+    background: var(--brand);
+}
+
+.btn-danger {
+    background: var(--danger);
+}
+
+.auth-card form > .btn {
+    width: 100%;
+    margin-top: 0.75rem;
+}
+
+.auth-link {
+    margin: 0.8rem 0 0;
+    text-align: center;
+    font-size: 0.72rem;
+    color: #dce3ec;
+}
+
+.auth-link a {
+    font-weight: 700;
+}
+
+.auth-footer {
+    margin-top: 1rem;
+    text-align: center;
+    color: #667b98;
+    font-size: 0.62rem;
+}
+
+.auth-footer a {
+    color: var(--brand);
+}
+
+.sr-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ---------- Aplicação / Dashboard ---------- */
+
+.app-body {
+    overflow-x: hidden;
+}
+
+.app-layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 7.2rem 1fr;
+}
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 0.8rem 0.65rem 0.55rem;
+    display: flex;
+    flex-direction: column;
+    background: var(--sidebar);
+}
+
+.sidebar-header h1 {
+    margin: 0 0 1.2rem;
+    font-size: 1.05rem;
+    line-height: 1.1;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 0.25rem;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 0.45rem 0.4rem;
+    color: #d6dfeb;
+    border-radius: 4px;
+    font-size: 0.57rem;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background: #33445b;
+    text-decoration: none;
+}
+
+.sidebar-footer {
+    margin: auto 0 0;
+    color: #8094ad;
+    font-size: 0.48rem;
+}
+
+.dashboard-content {
+    min-width: 0;
+    padding: 0.9rem 1rem 1.5rem;
+}
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.9rem;
+}
+
+.dashboard-header h2 {
+    margin: 0;
+    color: #aeb8c7;
+    font-size: 1.25rem;
+    line-height: 1.2;
+}
+
+.btn-new {
+    min-width: 4.1rem;
+    min-height: 1.7rem;
+    font-size: 0.52rem;
+    padding: 0.35rem 0.55rem;
+}
+
+.task-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+}
+
+.task-card {
+    min-width: 0;
+    padding: 0.85rem 0.8rem;
+    background: var(--panel);
+    border: 1px solid #2e3b4c;
+    border-radius: var(--radius);
+}
+
+.task-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.task-title-row h3 {
+    margin: 0;
+    color: #b8c1ce;
+    font-size: 0.75rem;
+}
+
+.view-link {
+    color: #f4b8c0;
+    font-size: 0.72rem;
+}
+
+.task-card p {
+    min-height: 2.25rem;
+    margin: 0.55rem 0 0.7rem;
+    color: #7188a6;
+    font-size: 0.57rem;
+    line-height: 1.45;
+}
+
+.task-actions {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.task-actions .btn {
+    width: 100%;
+    min-height: 1.45rem;
+    font-size: 0.55rem;
+    padding: 0.25rem 0.5rem;
+}
+
+/* ---------- Detalhes ---------- */
+
+.detail-content {
+    padding-top: 1.2rem;
+}
+
+.btn-back {
+    min-height: 1.7rem;
+    font-size: 0.52rem;
+}
+
+.detail-card {
+    padding: 1rem;
+    background: var(--panel);
+    border: 1px solid #2e3b4c;
+    border-radius: var(--radius);
+}
+
+.detail-card h3 {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.status-line {
+    margin: 0.2rem 0 0.4rem;
+    color: #647b98;
+    font-size: 0.58rem;
+}
+
+.status-line strong {
+    color: #ffba66;
+}
+
+.detail-info {
+    margin: 0;
+}
+
+.detail-info > div {
+    display: grid;
+    grid-template-columns: 4.2rem 1fr;
+    gap: 0.5rem;
+    padding: 0.45rem 0;
+    border-top: 1px solid #677386;
+}
+
+.detail-info dt,
+.detail-info dd {
+    margin: 0;
+    font-size: 0.58rem;
+}
+
+.detail-info dt {
+    color: #657b98;
+}
+
+.detail-info dd {
+    color: #d8e0ea;
+}
+
+.detail-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-top: 0.75rem;
+}
+
+.detail-actions .btn {
+    font-size: 0.55rem;
+}
+
+/* ---------- Responsividade mobile-first ---------- */
+
+@media (max-width: 768px) {
+    .auth-layout {
+        width: min(100% - 1.25rem, 23rem);
+        padding-top: 1.4rem;
+    }
+
+    .auth-page-header {
+        margin-bottom: 1.2rem;
+    }
+
+    .auth-page-header h1 {
+        font-size: clamp(2rem, 8vw, 2.65rem);
+        line-height: 1.5;
+    }
+
+    .auth-card {
+        width: 100%;
+        padding: 1.2rem 1.15rem 1.1rem;
+    }
+
+    .card-header h2 {
+        font-size: 1.35rem;
+    }
+
+    .form-group {
+        margin-top: 1rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 0.45rem;
+    }
+
+    .form-group input {
+        min-height: 2.45rem;
+        padding: 0.6rem 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    .auth-card form > .btn {
+        min-height: 2.45rem;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+
+    .auth-link {
+        margin-top: 1rem;
+        font-size: 0.85rem;
+    }
+
+    .auth-footer {
+        margin-top: 1.9rem;
+        font-size: 0.75rem;
+    }
+
+    .app-layout {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+        height: auto;
+        min-height: 16.5rem;
+        padding: 0.9rem 1.3rem 1rem;
+    }
+
+    .sidebar-header h1 {
+        margin-bottom: 2rem;
+        font-size: 2.1rem;
+    }
+
+    .sidebar-nav ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1.7rem;
+        row-gap: 0.8rem;
+    }
+
+    .sidebar-nav li {
+        margin: 0;
+    }
+
+    .sidebar-nav a {
+        padding: 0.2rem 0;
+        font-size: 0.95rem;
+        color: #f0f4f9;
+    }
+
+    .sidebar-nav a.active {
+        padding: 0.7rem 1rem;
+        background: #33445b;
+    }
+
+    .sidebar-footer {
+        margin-top: 2rem;
+        font-size: 0.75rem;
+    }
+
+    .dashboard-content {
+        padding: 1.5rem 1.1rem;
+    }
+
+    .dashboard-header {
+        display: block;
+        text-align: center;
+        margin-bottom: 1.6rem;
+    }
+
+    .dashboard-header h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1.6rem;
+    }
+
+    .btn-new {
+        width: 100%;
+        min-height: 2.8rem;
+        font-size: 0.9rem;
+    }
+
+    .task-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .task-card {
+        padding: 1.1rem 1.15rem;
+    }
+
+    .task-title-row h3 {
+        font-size: 1.35rem;
+    }
+
+    .view-link {
+        font-size: 1rem;
+    }
+
+    .task-card p {
+        min-height: auto;
+        margin: 0.75rem 0 1rem;
+        font-size: 0.85rem;
+    }
+
+    .task-actions {
+        gap: 0.55rem;
+    }
+
+    .task-actions .btn {
+        min-height: 2.8rem;
+        font-size: 0.9rem;
+    }
+
+    .detail-content {
+        padding-top: 1.2rem;
+    }
+
+    .detail-card {
+        margin-top: 0.5rem;
+    }
+}
+
+@media (min-width: 480px) {
+    .auth-layout {
+        width: min(100% - 2rem, 29rem);
+    }
+}
+
+@media (min-width: 1024px) {
+    .auth-layout {
+        padding-top: 1.8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

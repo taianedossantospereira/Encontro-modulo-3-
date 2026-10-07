@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cadastro no sistema de gerenciamento de tarefas">
+    <title>Cadastro - Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <main id="main-content" class="auth-layout">
+        <header class="auth-page-header">
+            <h1>Sistema de<br>Gerenciamento<br>de Tarefas</h1>
+        </header>
+
+        <section class="card auth-card register-card" aria-labelledby="register-heading">
+            <header class="card-header">
+                <h2 id="register-heading">Crie sua Conta</h2>
+            </header>
+
+            <form action="dashboard.html" method="get" aria-labelledby="register-heading">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input id="nome" name="nome" type="text" placeholder="Seu nome completo" autocomplete="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="seu@email.com" autocomplete="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input id="senha" name="senha" type="password" placeholder="Crie uma senha forte" autocomplete="new-password" minlength="6" required>
+                </div>
+
+                <button type="submit" class="btn btn-success">Cadastrar</button>
+                <div class="sr-status" aria-live="polite"></div>
+            </form>
+
+            <p class="auth-link">Já tem uma conta? <a href="../index.html">Faça login</a></p>
+        </section>
+
+        <footer class="auth-footer">
+            © 2026 Projeto Acadêmico | <a href="#">Termos de Uso</a>
+        </footer>
+    </main>
+</body>
+</html>
